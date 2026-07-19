@@ -1,19 +1,18 @@
-Ambient heartbeat check complete — clean run, no notification sent.
+Ambient heartbeat check complete. Fleet is healthy — no notification needed.
 
 ## Summary
 
-Ran the **ambient fleet-health check** (empty `${var}`, the live scheduled path).
+Ran the **ambient fleet-health check** (empty `${var}`, the live scheduled path). Everything is clean:
 
-**Findings:** none across all tiers.
-- **P0** — No failed, stuck, degraded, or chronic-failure skills. `install-skill` is healthy (4/4, 100%). `heartbeat` (the only enabled *scheduled* skill) has never completed a run yet — it's warming up in its first cycle, correctly excluded from the stuck check and self-check per bootstrap grace.
-- **P1** — 0 open PRs; the repo has issues disabled.
-- **P2** — Nothing flagged for follow-up in `MEMORY.md`.
-- **P3** — Skipped; only `heartbeat` is enabled+scheduled and it's in its first dispatch window.
+- **P0 — Failed & stuck:** None. `heartbeat` now shows 1/1 success (completed its first cycle, so the fleet is warmed, no longer bootstrapping); `install-skill` 4/4. No stuck, degraded, or chronic-failure skills. Self-check OK (heartbeat `last_success` <36h ago).
+- **P1 — PRs/issues:** 0 open PRs; issues disabled on the repo.
+- **P2 — Memory:** Nothing urgent flagged in `MEMORY.md`.
+- **P3 — Missing skills:** `heartbeat` is the only enabled scheduled skill; it has a state entry and succeeded within 2× its daily interval.
 
-**Overall status: 🟢 OK** — no notification sent (a clean run stays quiet).
+**Overall status: 🟢 OK.**
 
-**Files modified:**
-- `docs/status.md` — regenerated public status page (🟢 OK, updated 2026-07-18 14:36 UTC; Token Pulse omitted — no `token-report` exists).
-- `memory/logs/2026-07-18.md` — appended `### heartbeat` entry (`mode: ambient`, `HEARTBEAT_OK · STATUS_PAGE=OK`).
+Files modified:
+- `docs/status.md` — regenerated (verdict 🟢 OK; Token Pulse omitted, no token-report present).
+- `memory/logs/2026-07-19.md` — created with the ambient run log.
 
-**Follow-up:** none required. The status page and log land on `main` via the workflow's auto-commit step.
+No notification sent — a clean run stays quiet. The status page will land on `main` via the workflow's auto-commit step.

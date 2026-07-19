@@ -8,7 +8,7 @@ permalink: /status/
 # Agent Status
 
 **Overall:** 🟢 OK
-**Updated:** 2026-07-18 14:36 UTC
+**Updated:** 2026-07-19 11:39 UTC
 **Open issues:** 0
 **Next scheduled run:** heartbeat at 08:00 UTC
 
@@ -22,10 +22,10 @@ Regressions also surface as **votable** per-skill GitHub Issues (`health: <skill
 
 | Skill | Last run | Status | Success rate | Consecutive failures |
 |-------|----------|--------|-------------:|---------------------:|
+| heartbeat | 2026-07-18 14:37 UTC | ✅ success | 100% | 0 |
 | install-skill | 2026-07-18 12:09 UTC | ✅ success | 100% | 0 |
-| heartbeat | 2026-07-02 21:23 UTC | ⏳ dispatched | — | 0 |
 
-_heartbeat is the only enabled scheduled skill; this run is in flight, awaiting its first completed cycle._
+_heartbeat is the only enabled scheduled skill and has completed its first cycle; install-skill runs on demand (workflow_dispatch)._
 
 ## Open issues
 
